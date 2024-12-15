@@ -1,0 +1,31 @@
+def hitung_biaya_parkir(jenis_kendaraan, lama_parkir):
+    # Tarif dasar
+    tarif_masuk = 3000
+    tarif_motor_per_jam = 1000
+    tarif_mobil_per_jam = 1500
+    biaya_tambahan_24_jam = 10000
+
+    # Biaya awal untuk 2 jam pertama
+    biaya = tarif_masuk
+
+    # Jika lama parkir lebih dari 2 jam
+    if lama_parkir > 2:
+        jam_tambahan = lama_parkir - 2
+        
+        if jenis_kendaraan.lower() == 'motor':
+            biaya += jam_tambahan * tarif_motor_per_jam
+        elif jenis_kendaraan.lower() == 'mobil':
+            biaya += jam_tambahan * tarif_mobil_per_jam
+
+    # Jika lama parkir lebih dari 24 jam
+    if lama_parkir > 24:
+        biaya += biaya_tambahan_24_jam
+
+    return biaya
+
+# Contoh penggunaan
+jenis_kendaraan = input("Masukkan jenis kendaraan (motor/mobil): ")
+lama_parkir = int(input("Masukkan lama parkir (dalam jam): "))
+
+biaya = hitung_biaya_parkir(jenis_kendaraan, lama_parkir)
+print(f"Biaya parkir untuk {lama_parkir} jam dengan jenis kendaraan {jenis_kendaraan} adalah: Rp {biaya}")
