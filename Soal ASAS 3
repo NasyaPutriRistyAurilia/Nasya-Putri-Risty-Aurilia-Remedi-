@@ -1,0 +1,19 @@
+def hitung_biaya_parkir(jam_parkir):
+    # Tarif dasar
+    tarif_awal = 3000
+    tarif_setelah_dua_jam = 1500
+    biaya_tambahan = 10000
+
+    if jam_parkir <= 2:
+        total_biaya = tarif_awal
+    elif jam_parkir <= 24:
+        total_biaya = tarif_awal + (jam_parkir - 2) * tarif_setelah_dua_jam
+    else:
+        total_biaya = tarif_awal + (24 - 2) * tarif_setelah_dua_jam + biaya_tambahan
+
+    return total_biaya
+
+# Contoh penggunaan
+jam_parkir = int(input("Masukkan jumlah jam parkir: "))
+biaya = hitung_biaya_parkir(jam_parkir)
+print(f"Total biaya parkir untuk {jam_parkir} jam adalah: {biaya} rupiah")
